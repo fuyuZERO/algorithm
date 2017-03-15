@@ -6,7 +6,7 @@ void exchange(int *arr, int a, int b){
 	int tem;
 	tem=arr[a];
 	arr[a]=arr[b];
-	arr[b]=arr[a];
+	arr[b]=tem;
 }
 int partition(int *arr, int low, int high){
 	int x,i,j;
@@ -34,11 +34,11 @@ void quick_sort(int *arr, int start, int end){
 }
 int main(void){
     int i;
-    printf("ÅÅĞòÇ° \n");
+    printf("before sort:\n");
     for(i=0;i<N;i++)
         printf("%d\t",arr[i]);
     quick_sort(arr,0,N-1);
-    printf("\n ÅÅĞòºó \n");
+    printf("\nafter sort:\n");
     for(i=0; i<N; i++)
         printf("%d\t", arr[i]);
     printf ("\n");
