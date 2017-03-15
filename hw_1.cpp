@@ -44,7 +44,10 @@ int main()
 				f1=high[i];
 			}
 	}
-	if(writeFile(div)==-1) return 0;
+	writeFile(div);
+	delete []low;
+	delete []high;
+	return 0;
 }
 
 int readFile(double *min,double *max,double *NUM)
