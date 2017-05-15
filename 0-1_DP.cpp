@@ -1,21 +1,24 @@
 #include <stdio.h>
 /*
- * 0-1±³°üÎÊÌâ
- * Ëã·¨Ë¼Ïë£º¶¯Ì¬¹æ»®
- * w[]´æ·ÅÎïÆ·µÄÖØÁ¿£¬v[]´æ·ÅÁËÎïÆ·µÄ¼ÛÖµ£¬×î´ó±³°üÈİÁ¿10
- * ×÷Õß£ºJeremyWang
+ * 0-1èƒŒåŒ…é—®é¢˜
+ * ç®—æ³•æ€æƒ³ï¼šåŠ¨æ€è§„åˆ’
+ * w[]å­˜æ”¾ç‰©å“çš„é‡é‡ï¼Œv[]å­˜æ”¾äº†ç‰©å“çš„ä»·å€¼ï¼Œæœ€å¤§èƒŒåŒ…å®¹é‡10
+ * ä½œè€…ï¼šJeremyWang
  */
 
-int  r[6][11],s[6][11],w[]={2,2,6,5,4},v[]={6,3,5,4,6};
+#define n 300                                          			       //nèƒŒåŒ…ä¸Šé™ï¼Œmç‰©å“æ•°
+#define m 10
+
+int  r[m+1][n+1],s[m+1][n+1],w[]={95,75,23,73,50,22,6,57,89,98},v[]={89,59,19,43,100,72,44,16,7,64};
 
 void solude()
 {
 	int j;
-	for(int j=1;j<=10;j++)						//for(for())->ÎÊÌâµÄ¹æÄ£
+	for(int j=1;j<=n;j++)			              			//for(for())->é—®é¢˜çš„è§„æ¨¡
 	{
-		for(int i=1;i<=5;i++)		
+		for(int i=1;i<=m;i++)		
 		{
-			if(j<w[i-1])						//"if..else if..if"¡ª>ÎÊÌâµÄ¶¯Ì¬ĞÔ
+			if(j<w[i-1])						//"if..else if..if"â€”>é—®é¢˜çš„åŠ¨æ€æ€§
 			{
 				r[i][j]=r[i-1][j];
 				s[i][j]=1;
@@ -56,17 +59,17 @@ void print_solution (int i,int j)
 
 int main()
 {
-	for (int i=0;i<6;i++)
+	for (int i=0;i<m+1;i++)
 	{
-		for (int j=0;j<11;j++)
+		for (int j=0;j<n+1;j++)
 		{
 			r[i][j]=0;
 			s[i][j]=0;
 		}
 	}
 	solude();
-	printf("The max package:%d\n",r[5][10]);
-	print_solution(5,10);
+	printf("The max package:%d\n",r[m][n]);
+	print_solution(m,n);
 	printf("\n");
 	return 1;
 }
